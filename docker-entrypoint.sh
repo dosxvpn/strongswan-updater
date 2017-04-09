@@ -1,8 +1,8 @@
 #!/usr/bin/env sh
 set -e
-CONTAINER="doxvpn"
+CONTAINER="dosxvpn"
 IMAGE="dosxvpn/strongswan"
-CID=$(docker ps | grep " $IMAGE " | awk '{print $1}')
+CID=$(docker ps -q -f name=dosxvpn)
 docker pull $IMAGE
 
 LATEST=`docker inspect --format "{{.Id}}" $IMAGE`
